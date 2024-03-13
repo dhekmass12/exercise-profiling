@@ -29,10 +29,7 @@ public class StudentService {
         for (Student student : students) {
             List<StudentCourse> studentCoursesByStudent = studentCourseRepository.findByStudentId(student.getId());
             for (StudentCourse studentCourseByStudent : studentCoursesByStudent) {
-                StudentCourse studentCourse = new StudentCourse();
-                studentCourse.setStudent(student);
-                studentCourse.setCourse(studentCourseByStudent.getCourse());
-                studentCourses.add(studentCourse);
+                studentCourses.add(studentCourseByStudent);
             }
         }
         return studentCourses;
